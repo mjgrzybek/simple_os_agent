@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+set -x
+
+useradd -m -s /bin/bash -U gtg -u 667
+
+mkdir -p /home/gtg/.ssh
+chown -R gtg:gtg /home/gtg
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDKEG1XGDFts37kiJ5cc6PgpbJSJW4M9TAF3h3VaZ6erpQb/fVP3Qw8xtBZ4DWz6P8MRiP8nJdnmV7wUxKfQZw1IrZRsSef0OTtshQIWhuH57B+xV+Tec64kqmkRi6OlBzqguoe2BL5rVKyY0Y3Zd2zzaKt1gtbDKjJZi+WP4If+wdH9XVkJC5q9kiCmEPQaTA/OPRWA3u2oIfOILa1kpl4ogJg++0AO6y3/fC94nvlsJKVz+lb9f/FNg38bjLSxYduvpaz8sVF7WwpWM6ZR0ToZvksJrAj7lMnCZmKWuEGoOPEIe5+v3STWSUgtDhuCyB9+MtazS0ioNxBmhVRjzgJqgRP2YomhUu9jmco4iAKdiPxbvZe09EG8D2KIcf1G+v7frsRxvJyi+VJZKfQCxDYZSeguPcvDlLBiedb+fzgn2r7rmfgl9Y69qrWBxMiiu0WLw7bAx6/NfX8hKTz6ig55/eXxPzjnIvoltYXZyD7fMLZgU03AEbDmIlgdgmP1I45p5TPQojkeJR6SKaHc+4hOoN2VNsXG2BfQcCEOz5BTTpFBk5c36GXHxbHdN3g3nwG5oqKStq9I7G+Y0ZlB9B2i5Qm3tjFPTzZc0StJFnzXepaO5e/RnW/TOWY+slNRQQWOdZIFpmOfgefT3zlMp4pW5hqjXX0XkrC5ISlfIvdWQ== michal.grzybek@dynatrace.com" >> /home/gtg/.ssh/authorized_keys
+
+systemctl restart sshd
